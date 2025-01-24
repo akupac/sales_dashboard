@@ -14,7 +14,7 @@ def load_data(query_string = None):
         data["Data da Compra"] = pd.to_datetime(data["Data da Compra"], format = "%d/%m/%Y")
         return data
     except Exception as e:
-        print(e)
+        print("Erro de carregamento dos dados")
         return None
     
 
