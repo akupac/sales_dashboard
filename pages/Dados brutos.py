@@ -44,17 +44,16 @@ with st.sidebar.expander('Avaliação da venda'):
     rating = st.slider('Selecione a avaliação da compra',1,5, (1,5))
 
 query = '''
-Produto in @produtos and \
-`Categoria do Produto` in @categorias and \
-@preco[0] <= Preço <= @preco[1] and \
-@frete[0] <= Frete <= @frete[1] and \
-@data_compra[0] <= `Data da Compra` <= @data_compra[1] and \
-@avaliacao[0]<= `Avaliação da compra` <= @avaliacao[1] and \
-`Tipo de pagamento` in @tipo_pgto and \
-`Local da compra` in @local_venda and \
-@avaliacao[0]<= `Avaliação da compra` <= @avaliacao[1] and \
-@qtd_parcelas[0] <= `Quantidade de parcelas` <= @qtd_parcelas[1] and \
-Vendedor in @vendedores
+Produto in @products and \
+`Categoria do Produto` in @categories and \
+@price[0] <= Preço <= @price[1] and \
+@shipping[0] <= Frete <= @shipping[1] and \
+@sale_date[0] <= `Data da Compra` <= @sale_date[1] and \
+@rating[0]<= `Avaliação da compra` <= @rating[1] and \
+`Tipo de pagamento` in @payment_method and \
+`Local da compra` in @sale_place and \
+@qt_rates[0] <= `Quantidade de parcelas` <= @qt_rates[1] and \
+Vendedor in @sellers
 '''
 
 filtered_data = data.query(query)
