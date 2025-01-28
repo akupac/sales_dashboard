@@ -9,4 +9,4 @@ Aplicação que utiliza dados de vendas da API labdados e os dispõe para usuár
 - Plotly
 - Requests
 
-Desenvolvido por [Alexandre Alscher Kupac](https://www.linkedin.com/in/alexandrekupac/)
+Desenvolvido por [Alexandre Alscher Kupac](https://www.linkedin.com/in/alexandrekupac/) e publicado na [Streamlit Cloud](https://salesdashboard-z4krjfmosh7b9a7rzl5y9r.streamlit.app/)
