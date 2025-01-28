@@ -14,7 +14,7 @@ def load_data(query_string = None):
         data["Data da Compra"] = pd.to_datetime(data["Data da Compra"], format = "%d/%m/%Y")
         return data
     except Exception as e:
-        print("Erro de carregamento dos dados")
+        st.error(f"Erro de carregamento dos dados: {e}")
         return None
     
 
@@ -42,6 +42,7 @@ filter_sellers = st.sidebar.multiselect("Vendedores", data["Vendedor"].unique())
 data = data[data['Vendedor'].isin(filter_sellers)] if filter_sellers else data
 
 data["Frete"] = data["Frete"].round(2)
+
 # TABLES
 ## Revenue tables
 
@@ -59,7 +60,9 @@ revenue_monthly["Ano"] = revenue_monthly["Data da Compra"].dt.year
 revenue_monthly["Mês"] = revenue_monthly["Data da Compra"].dt.month_name()
 
 revenue_categories = data.groupby("Categoria do Produto")[["Preço"]].sum().sort_values("Preço", ascending=False)
+
 ## Sales tables
+
 sales_states = data.groupby("Local da compra")[["Local da compra"]].value_counts().sort_values(ascending=False)
 sales_states_coords = data\
     .drop_duplicates("Local da compra")[["Local da compra", "lat", "lon"]]\
@@ -153,6 +156,7 @@ graph_sales_categories = px.bar(sales_categories,
 graph_sales_categories.update_layout(yaxis_title = 'Vendas')
 
 # VISUALIZATIONS
+
 st.title("Dashboard de vendas :shopping_trolley:")
 
 tab1_revenue, tab2_sales, tab3_sellers = st.tabs(["Receita", "Quantidade de vendas", "Vendedores"])

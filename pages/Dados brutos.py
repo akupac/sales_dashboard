@@ -69,4 +69,10 @@ with col1:
     file_name = st.text_input("dados", label_visibility="collapsed", value = "dados")
     file_name += ".csv"
 with col2:
-    st.download_button("Fazer download da tabela em CSV", data = convert_csv(filtered_data), file_name = file_name, mime = "text/csv", on_click = success_msg)
+    st.download_button("Fazer download da tabela em CSV",\
+        data = convert_csv(filtered_data),\
+            file_name = file_name,\
+                mime = "text/csv",\
+                    on_click = success_msg
+                    )
+    
