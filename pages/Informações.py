@@ -14,5 +14,6 @@ st.markdown("""
 - Plotly
 - Requests
 
-Desenvolvido por [Alexandre Alscher Kupac](https://www.linkedin.com/in/alexandrekupac/). Código fonte em 
+Desenvolvido por [Alexandre Alscher Kupac](https://www.linkedin.com/in/alexandrekupac/). 
+Código fonte em [https://github.com/akupac/sales_dashboard](https://github.com/akupac/sales_dashboard).
 """)
